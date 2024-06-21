@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import axiosinstance from '../utils/axiosinstance';
+import axiosInstance from '../utils/axiosinstance';
 
 
 
@@ -15,6 +15,14 @@ const Profile = () => {
     }
 
   }, [])
+
+
+  // const handleLogout =async ()=>{
+  //   const res=await axiosInstance.post("/auth/logout/", {"refresh_token":refresh})
+  //   if (res.status)
+  // }
+
+
 
   return (
     <div>
