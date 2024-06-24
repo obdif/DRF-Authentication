@@ -121,8 +121,8 @@ DATABASES = {
             'password': 'TKgHFlQD4MtqpDYa',
             'authMechanism': 'SCRAM-SHA-1',
             # 'ssl_cert_reqs': ssl.CERT_NONE,
-            # 'socketTimeoutMS': 100000,
-            # 'connectTimeoutMS': 100000,
+            'socketTimeoutMS': 100000,
+            'connectTimeoutMS': 100000,
             
         }
     }
