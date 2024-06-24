@@ -10,6 +10,12 @@ from rest_framework_simplejwt.tokens import RefreshToken
 # _(Last Name): Tester
 # Password: test
 
+# Email Address: blessing@gmail.com
+# _(First Name): Adeola
+# _(Last Name): Blessing
+# pass: 1234567
+
+
 AUTH_PROVIDERS={
     'email':'email',
     'google':'google',

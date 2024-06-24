@@ -42,6 +42,18 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user
     
     
+class VerifyEmailSerializer(serializers.ModelSerializer):
+    otpcode = serializers.CharField(max_length=6)
+    
+    class Meta:
+        model = User
+        fields = ['otpcode']
+
+    def validate(self, attrs):
+        otpcode = attrs.get('otpcode')
+        return attrs
+    
+    
     
 class LoginSerializer(serializers.ModelSerializer):
     email=serializers.EmailField(max_length=255, min_length=6)

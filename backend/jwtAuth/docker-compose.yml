@@ -1,5 +1,4 @@
-
-
+version: '3.9'
 
 services:
   django:
@@ -7,3 +6,12 @@ services:
     build: .
     ports:
       - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=jwtAuth.settings
+      - DATABASE_URL=mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true
+   
+
+volumes:
+  mongo_data:
+
+
