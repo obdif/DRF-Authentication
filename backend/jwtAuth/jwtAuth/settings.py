@@ -101,32 +101,32 @@ CSRF_TRUSTED_ORIGINS=[
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'Authapp',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true',
-            'ssl': True,
-            'username': 'olamidedevops',
-            'password': 'TKgHFlQD4MtqpDYa',
-            'authMechanism': 'SCRAM-SHA-1',
-            # 'ssl_cert_reqs': ssl.CERT_NONE,
-            'socketTimeoutMS': 100000,
-            'connectTimeoutMS': 100000,
-            
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'Authapp',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': 'mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true',
+#             'ssl': True,
+#             'username': 'olamidedevops',
+#             'password': 'TKgHFlQD4MtqpDYa',
+#             'authMechanism': 'SCRAM-SHA-1',
+#             # 'ssl_cert_reqs': ssl.CERT_NONE,
+#             'socketTimeoutMS': 100000,
+#             'connectTimeoutMS': 100000,
+            
+#         }
+#     }
+# }
 
 
 

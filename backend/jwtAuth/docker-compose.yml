@@ -8,10 +8,10 @@ services:
       - "8000:8000"
     environment:
       - DJANGO_SETTINGS_MODULE=jwtAuth.settings
-      - DATABASE_URL=mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true
-   
-
-volumes:
-  mongo_data:
+      # - DATABASE_URL=mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true
+    volumes:
+      - .:/app
 
 
+# volumes:
+#   mongo_data:
