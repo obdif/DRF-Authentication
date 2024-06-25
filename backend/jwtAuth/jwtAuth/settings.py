@@ -101,14 +101,27 @@ CSRF_TRUSTED_ORIGINS=[
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+# ========================= MYSQL DATABASE ======================
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'authdb',
+        'USER': 'root',
+        'PASSWORD': 'Devops@2024',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
-
+# ============================= MONGO DATABASES ===========
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'djongo',
