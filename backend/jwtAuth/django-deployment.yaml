@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+spec:
+  selector:
+    matchLabels:
+      app: django
+  replicas: 2  # Adjust the number of replicas as needed
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - image: django-docker:0.0.1
+        name: django
+        env:
+        - name: DJANGO_SETTINGS_MODULE
+          value: jwtAuth.settings
+        - name: DATABASE_NAME
+          value: authdb
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-user
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-password
+        - name: DATABASE_HOST
+          value: mysql
+        - name: DATABASE_PORT
+          value: "3306"
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django
+spec:
+  ports:
+  - port: 8000
+  selector:
+    app: django
