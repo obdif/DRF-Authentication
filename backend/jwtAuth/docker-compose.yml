@@ -13,7 +13,7 @@ services:
       MYSQL_ROOT_PASSWORD: Devops@2024
 
   django:
-    image: django-docker:0.0.1
+    image: authapp
     build: .
     ports:
       - "8000:8000"
