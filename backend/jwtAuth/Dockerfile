@@ -7,7 +7,8 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN apt-get update \
-    && apt-get install -y default-mysql-client \
+    && apt-get install -y default-mysql-client pkg-config libmariadb-dev-compat libmariadb-dev \
+    && pip install --upgrade pip \
     && pip install -r requirements.txt
 
 COPY . .
