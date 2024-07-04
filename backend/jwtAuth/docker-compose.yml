@@ -9,8 +9,9 @@ services:
     environment:
       MYSQL_DATABASE: authdb
       MYSQL_USER: root
-      MYSQL_PASSWORD: Devops@2024
       MYSQL_ROOT_PASSWORD: Devops@2024
+      MYSQL_PASSWORD: Devops@2024
+      
 
   django:
     image: authapp
@@ -21,6 +22,7 @@ services:
       - DJANGO_SETTINGS_MODULE=jwtAuth.settings
       - MYSQL_DATABASE=authdb
       - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=Devops@2024
       - MYSQL_PASSWORD=Devops@2024
       - MYSQL_HOST=localhost
       - MYSQL_PORT=3306
