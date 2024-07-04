@@ -122,6 +122,7 @@ CSRF_TRUSTED_ORIGINS=[
 # }
 
 # ============================= MONGO DATABASES ===========
+import ssl
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
