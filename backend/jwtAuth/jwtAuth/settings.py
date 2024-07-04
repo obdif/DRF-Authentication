@@ -110,36 +110,36 @@ CSRF_TRUSTED_ORIGINS=[
 
 
 # ========================= MYSQL DATABASE ======================
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'authdb',
-        'USER': 'root',
-        'PASSWORD': 'Devops@2024',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-
-# ============================= MONGO DATABASES ===========
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'Authapp',
-#         'ENFORCE_SCHEMA': False,
-#         'CLIENT': {
-#             'host': 'mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true',
-#             'ssl': True,
-#             'username': 'olamidedevops',
-#             'password': 'TKgHFlQD4MtqpDYa',
-#             'authMechanism': 'SCRAM-SHA-1',
-#             # 'ssl_cert_reqs': ssl.CERT_NONE,
-#             'socketTimeoutMS': 100000,
-#             'connectTimeoutMS': 100000,
-            
-#         }
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'authdb',
+#         'USER': 'root',
+#         'PASSWORD': 'Devops@2024',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
 #     }
 # }
+
+# ============================= MONGO DATABASES ===========
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'Authapp',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true',
+            'ssl': True,
+            'username': 'olamidedevops',
+            'password': 'TKgHFlQD4MtqpDYa',
+            'authMechanism': 'SCRAM-SHA-1',
+            # 'ssl_cert_reqs': ssl.CERT_NONE,
+            'socketTimeoutMS': 100000,
+            'connectTimeoutMS': 100000,
+            
+        }
+    }
+}
 
 
 

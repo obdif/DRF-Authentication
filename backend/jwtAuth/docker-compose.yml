@@ -2,15 +2,15 @@ version: '3.9'
 
 services:
   mysql:
-    image: mysql:5.7
+    image: mongo
+    ports:
+      - "27017:27017"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mongodb_data:/data/db
     restart: always
     environment:
-      MYSQL_DATABASE: authdb
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Devops@2024
-      MYSQL_ROOT_PASSWORD: Devops@2024
+      MONGO_INITDB_ROOT_USERNAME: olamidedevops
+      MONGO_INITDB_ROOT_PASSWORD: TKgHFlQD4MtqpDYa
 
   django:
     image: authapp
@@ -19,16 +19,15 @@ services:
       - "8000:8000"
     environment:
       - DJANGO_SETTINGS_MODULE=jwtAuth.settings
-      - MYSQL_DATABASE=authdb
-      - MYSQL_USER=root
-      - MYSQL_ROOT_PASSWORD: Devops@2024
-      - MYSQL_PASSWORD=Devops@2024
-      - MYSQL_HOST=localhost
-      - MYSQL_PORT=3306
+      - MONGO_DB_NAME=Authapp
+      - MONGO_DB_USERNAME=olamidedevops
+      - MONGO_DB_PASSWORD=TKgHFlQD4MtqpDYa
+      - MONGO_DB_HOST=mongodb
+      - MONGO_DB_PORT=27017
     volumes:
       - .:/app
     depends_on:
-      - mysql
+      - mongodb
 
 volumes:
-  mysql_data:
+  mongodb_data:
