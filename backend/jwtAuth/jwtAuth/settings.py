@@ -116,7 +116,7 @@ DATABASES = {
         'NAME': 'authdb',
         'USER': 'root',
         'PASSWORD': 'Devops@2024',
-        'HOST': 'localhost',
+        'HOST': 'mysql  ',
         'PORT': '3306',
     }
 }
