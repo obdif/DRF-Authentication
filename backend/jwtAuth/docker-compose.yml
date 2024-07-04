@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: authdb
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: Devops@2024
-      MYSQL_PASSWORD: Devops@2024
+      # MYSQL_PASSWORD: Devops@2024
       
 
   django:
@@ -23,7 +23,7 @@ services:
       - MYSQL_DATABASE=authdb
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=Devops@2024
-      - MYSQL_PASSWORD=Devops@2024
+      # - MYSQL_PASSWORD=Devops@2024
       - MYSQL_HOST=localhost
       - MYSQL_PORT=3306
     volumes:
