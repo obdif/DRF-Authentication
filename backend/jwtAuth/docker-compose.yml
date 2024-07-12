@@ -1,39 +1,17 @@
-version: '3.9'
-
-services:
-  mongodb:
-    image: mongo:4.4
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: olamidedevops
-      MONGO_INITDB_ROOT_PASSWORD: TKgHFlQD4MtqpDYa
-
-  django:
-    image: authapp
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - DJANGO_SETTINGS_MODULE=jwtAuth.settings
-      - MONGO_DB_NAME=Authapp
-      - MONGO_DB_USERNAME=olamidedevops
-      - MONGO_DB_PASSWORD=TKgHFlQD4MtqpDYa
-      - MONGO_DB_HOST=mongodb
-      - MONGO_DB_PORT=27017
-    volumes:
-      - .:/app
-    depends_on:
-      - mongodb
-
-volumes:
-  mongodb_data:
-
+# version: '3.9'
 
 # services:
+#   mongodb:
+#     image: mongo:4.4
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongodb_data:/data/db
+#     restart: always
+#     environment:
+#       MONGO_INITDB_ROOT_USERNAME: olamidedevops
+#       MONGO_INITDB_ROOT_PASSWORD: TKgHFlQD4MtqpDYa
+
 #   django:
 #     image: authapp
 #     build: .
@@ -41,5 +19,51 @@ volumes:
 #       - "8000:8000"
 #     environment:
 #       - DJANGO_SETTINGS_MODULE=jwtAuth.settings
+#       - MONGO_DB_NAME=Authapp
+#       - MONGO_DB_USERNAME=olamidedevops
+#       - MONGO_DB_PASSWORD=TKgHFlQD4MtqpDYa
+#       - MONGO_DB_HOST=mongodb
+#       - MONGO_DB_PORT=27017
 #     volumes:
 #       - .:/app
+#     depends_on:
+#       - mongodb
+
+# volumes:
+#   mongodb_data:
+
+
+# # services:
+# #   django:
+# #     image: authapp
+# #     build: .
+# #     ports:
+# #       - "8000:8000"
+# #     environment:
+# #       - DJANGO_SETTINGS_MODULE=jwtAuth.settings
+# #     volumes:
+# #       - .:/app
+
+
+version: '3.8'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DJANGO_SETTINGS_MODULE=backend.settings
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+  db:
+    image: sqlite:3
+    volumes:
+      - ./data:/var/lib/sqlite/data
