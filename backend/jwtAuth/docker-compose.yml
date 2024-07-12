@@ -45,25 +45,22 @@
 # #       - .:/app
 
 
-version: '3.8'
+version: '3'
 
 services:
   django:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     volumes:
       - .:/app
     environment:
       - PYTHONUNBUFFERED=1
-      - DJANGO_SETTINGS_MODULE=backend.settings
-    command: python manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
 
   db:
     image: sqlite:3
     volumes:
-      - ./data:/var/lib/sqlite/data
+      - ./db.sqlite3:/var/lib/sqlite3/db.sqlite3
