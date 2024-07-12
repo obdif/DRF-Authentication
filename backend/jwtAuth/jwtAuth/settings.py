@@ -134,7 +134,7 @@ DATABASES = {
             'username': 'olamidedevops',
             'password': 'TKgHFlQD4MtqpDYa',
             'authMechanism': 'SCRAM-SHA-1',
-            'ssl_cert_reqs': ssl.CERT_NONE,
+            # 'ssl_cert_reqs': ssl.CERT_NONE,
             'tlsAllowInvalidCertificates': True,
             'tls': True,
             'socketTimeoutMS': 100000,
