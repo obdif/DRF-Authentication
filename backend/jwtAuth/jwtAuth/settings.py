@@ -123,27 +123,26 @@ CSRF_TRUSTED_ORIGINS=[
 
 # ============================= MONGO DATABASES ===========
 import ssl
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'Authapp',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority&ssl=true',
-            'ssl': True,
+            'host': 'mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@auth.nleripr.mongodb.net/Authapp?retryWrites=true&w=majority',
             'username': 'olamidedevops',
             'password': 'TKgHFlQD4MtqpDYa',
             'authMechanism': 'SCRAM-SHA-256',
-            'ssl_cert_reqs': ssl.CERT_NONE,
             'authSource': 'admin',
-            'tlsAllowInvalidCertificates': True,
             'tls': True,
-            'socketTimeoutMS': 100000,
+            'tlsAllowInvalidCertificates': True,
             'connectTimeoutMS': 100000,
-            
+            'socketTimeoutMS': 100000,
         }
     }
 }
+
 
 # mongodb+srv://olamidedevops:64uG3bV8mkpu6wGMJ2svjfaECzwGzxGrecrwV48LborC@auth.nleripr.mongodb.net/?retryWrites=true&w=majority&appName=Auth
 # from pymongo import MongoClient
