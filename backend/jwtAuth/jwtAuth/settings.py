@@ -134,7 +134,9 @@ DATABASES = {
             'username': 'olamidedevops',
             'password': 'TKgHFlQD4MtqpDYa',
             'authMechanism': 'SCRAM-SHA-1',
-            # 'ssl_cert_reqs': ssl.CERT_NONE,
+            'ssl_cert_reqs': ssl.CERT_NONE,
+            'tlsAllowInvalidCertificates': True,
+            'tls': True,
             'socketTimeoutMS': 100000,
             'connectTimeoutMS': 100000,
             
@@ -142,6 +144,13 @@ DATABASES = {
     }
 }
 
+# mongodb+srv://olamidedevops:64uG3bV8mkpu6wGMJ2svjfaECzwGzxGrecrwV48LborC@auth.nleripr.mongodb.net/?retryWrites=true&w=majority&appName=Auth
+# from pymongo import MongoClient
+
+# client = MongoClient("mongodb+srv://olamidedevops:TKgHFlQD4MtqpDYa@todoapp.scjkzt4.mongodb.net/tododb?retryWrites=true&w=majority&ssl=true")
+# db = client.test_database
+
+# print(db.list_collection_names())
 
 
 # TKgHFlQD4MtqpDYa

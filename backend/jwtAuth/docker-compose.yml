@@ -1,5 +1,51 @@
 version: '3.9'
 
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: olamidedevops
+      MONGO_INITDB_ROOT_PASSWORD: TKgHFlQD4MtqpDYa
+
+  django:
+    image: authapp
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=jwtAuth.settings
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3.9'
+
 # services:
 #   mysql:
 #     image: mongo
@@ -32,13 +78,13 @@ version: '3.9'
 # volumes:
 #   mongodb_data:
 
-services:
-  django:
-    image: authapp
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - DJANGO_SETTINGS_MODULE=jwtAuth.settings
-    volumes:
-      - .:/app
+# # services:
+# #   django:
+# #     image: authapp
+# #     build: .
+# #     ports:
+# #       - "8000:8000"
+# #     environment:
+# #       - DJANGO_SETTINGS_MODULE=jwtAuth.settings
+# #     volumes:
+# #       - .:/app
