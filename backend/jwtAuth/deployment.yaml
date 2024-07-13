@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: django
-  replicas: 1  
+  replicas: 1
   template:
     metadata:
       labels:
@@ -16,26 +16,26 @@ spec:
       - image: authapp
         name: django
         env:
-        - name: DJANGO_SETTINGS_MODULE
+        - name: MONGO_INITDB_ROOT_USERNAME
           value: jwtAuth.settings
         - name: DATABASE_NAME
           value: authdb
         - name: DATABASE_USER
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
-              key: mysql-user
+              name: mongo-secret
+              key: mongo-user
         - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
-              key: mysql-password
-        - name: DATABASE_HOST
-          value: mysql
-        - name: DATABASE_PORT
-          value: "3306"
-        ports:
-        - containerPort: 8000
+              name: mongo-secret
+              key: mongo-password
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
+    
 ---
 apiVersion: v1
 kind: Service
@@ -44,9 +44,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-   - protocol:TCP
+   - protocol: TCP
      port: 8000
      targetPort: 8000
-    #  nodePort: 8001
+     nodePort: 8001
   selector:
     app: django
