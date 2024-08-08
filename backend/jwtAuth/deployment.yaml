@@ -13,7 +13,7 @@ spec:
         app: django
     spec:
       containers:
-      - image: username/authapp:latest
+      - image: obdif/authapp:latest
         name: django
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
