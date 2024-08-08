@@ -35,7 +35,7 @@ spec:
             configMapKeyRef:
               name: mongo-config
               key: mongo-url
-    
+
 ---
 apiVersion: v1
 kind: Service
@@ -47,6 +47,6 @@ spec:
    - protocol: TCP
      port: 8000
      targetPort: 8000
-     nodePort: 8001
+     nodePort: 30001  # Changed to a valid port number
   selector:
     app: django
