@@ -7,7 +7,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN apt-get update \
-    &&apt-get install -y mongodb-clients pkg-config libmariadb-dev-compat libmariadb-dev build-essential gcc \
+    &&apt-get install -y pkg-config libmariadb-dev-compat libmariadb-dev build-essential gcc \
     && pip install --upgrade pip \
     && pip install -r requirements.txt
 
